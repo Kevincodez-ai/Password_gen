@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Generator - Generate Passwords</title>
+  <style>
+    body {
+      background-color: chocolate;
+      font-family: 'Trebuchet MS', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      border: 2px solid springgreen;
+      margin: 1rem;
+      padding: 0.5rem;
+    }
+
+    .pass_container {
+      text-align: center;
+      margin: auto;
+      margin-top: 2rem;
+      padding: 1rem;
+      max-width: 400px;
+      background-color: aqua;
+      border: 2px solid black;
+      border-radius: 20px;
+    }
+
+    .pass_container label {
+      display: inline-block;
+      margin: 0.5rem 0 0.2rem;
+      font-weight: bold;
+    }
+
+    .pass_container label:hover {
+      font-size: larger;
+      color: red;
+      transition: 0.1s;
+    }
+
+    .pass_container input[type="number"] {
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .pass_container input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+
+    .pass_container button {
+      margin-top: 1.5rem;
+      padding: 10px 30px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .pass_container button:hover {
+      background-color: grey;
+      box-shadow: 2px 2px 2px red;
+      transition: 0.5s;
+    }
+
+    #pass56, #most_recent1 {
+      display: block;
+      text-align: center;
+      font-size: 1.2em;
+      margin: 1rem auto;
+      cursor: pointer;
+    }
+
+    #pass56:hover, #most_recent1:hover {
+      font-size: larger;
+      color: red;
+      transition: 0.1s;
+    }
+
+    .pass_secure {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    #recent {
+      display: block;
+      margin: 0 auto 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Password Generator 🔐 🎯</h1>
+
+  <h2 id="pass56" onclick="copyRecentToClipboard1()">Your password</h2>
+
+  <div class="pass_secure">
+    <h2 id="pass_strength">Strength of password</h2>
+  </div>
+
+  <button id="recent" onclick="showRecent()">View most recent password</button>
+  <h4 id="most_recent1" onclick="copyRecentToClipboard()">Click to copy most recent</h4>
+
+  <div class="pass_container">
+    <label for="pass_len">Enter password length ➡️</label>
+    <input type="number" id="pass_len" min="1" max="128" placeholder="Length of the password" required /><br><br>
+
+    <label><input type="checkbox" id="pass1" /> Alphabets?</label><br>
+    <label><input type="checkbox" id="pass2" /> Numbers?</label><br>
+    <label><input type="checkbox" id="pass3" /> Special Characters?</label><br><br>
+
+    <button onclick="generatePassword()">Generate</button>
+  </div>
+
+  <script src="password_script.js"></script>
+</body>
+</html>
